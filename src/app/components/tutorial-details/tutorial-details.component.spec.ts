@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TutorialDetailsComponent } from './tutorial-details.component';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('TutorialDetailsComponent', () => {
   let component: TutorialDetailsComponent;
@@ -8,9 +11,11 @@ describe('TutorialDetailsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TutorialDetailsComponent ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule],
+
+      declarations: [TutorialDetailsComponent],
+      providers: [HttpClient, HttpHandler],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TutorialDetailsComponent);
     component = fixture.componentInstance;
